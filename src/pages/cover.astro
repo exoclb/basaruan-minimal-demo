@@ -1,0 +1,146 @@
+---
+import data from '../data/wedding.json';
+const date = new Date(data.date);
+const formattedDate = date.toLocaleDateString('id-ID', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+---
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <title>{data.groom} & {data.bride} - Wedding Invitation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="cover">
+      <div class="content">
+        <p class="label fade-in">Wedding Invitation</p>
+        <h1 class="fade-in delay-1">{data.groom} <span>&</span> {data.bride}</h1>
+        <p class="date fade-in delay-2">{formattedDate}</p>
+        <a href="/home" class="btn fade-in delay-3">Buka Undangan</a>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+</script>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #fff;
+    color: #333;
+  }
+
+  .cover {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #fff 0%, #f8f8f8 100%);
+    color: #333;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .content {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #999;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    font-weight: 300;
+    margin: 0 0 1.5rem;
+    line-height: 1.2;
+  }
+
+  h1 span {
+    color: #c9a87c;
+  }
+
+  .date {
+    color: #666;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .btn:hover {
+    background: #c9a87c;
+  }
+
+  .btn:active {
+    transform: scale(0.98);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+  }
+
+  .delay-1 { animation-delay: 0.2s; }
+  .delay-2 { animation-delay: 0.4s; }
+  .delay-3 { animation-delay: 0.6s; }
+
+  @keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 480px) {
+    .label {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 10vw, 2.5rem);
+    }
+
+    .btn {
+      padding: 0.875rem 2rem;
+      font-size: 0.8rem;
+    }
+  }
+</style>

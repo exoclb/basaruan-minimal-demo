@@ -1,0 +1,58 @@
+{
+  "theme": "minimal",
+  "groom": "Budi Santoso",
+  "bride": "Siti Rahayu",
+  "groomFather": "Bapak H. Ahmad Santoso",
+  "groomMother": "Ibu Hj. Siti Aminah",
+  "brideFather": "Bapak H. Mahmud Rahayu",
+  "brideMother": "Ibu Hj. Nurhaliza",
+  "date": "2026-06-15T10:00:00",
+  "venue": "Gedung Serbaguna Harmoni",
+  "music": {
+    "url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    "title": "Beautiful in White - Shane Filan"
+  },
+  "shareText": "Kami mengundang Anda untuk hadir di pernikahan kami!",
+  "events": [
+    {
+      "name": "Akad Nikah",
+      "time": "10:00 - 12:00 WIB",
+      "location": "Masjid Al-Muhajirin",
+      "mapsUrl": "https://maps.google.com/?q=Masjid+Al-Muhajirin"
+    },
+    {
+      "name": "Resepsi",
+      "time": "18:00 - 22:00 WIB",
+      "location": "Gedung Serbaguna Harmoni",
+      "mapsUrl": "https://maps.google.com/?q=Gedung+Serbaguna+Harmoni"
+    }
+  ],
+  "gallery": [
+    "https://images.unsplash.com/photo-1519741497674-611481863552?w=600",
+    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600",
+    "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600",
+    "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600"
+  ],
+  "loveStory": [
+    {
+      "year": "2023",
+      "title": "Pertama Bertemu",
+      "description": "Di sebuah coffeeshop, obrolan ringan mempertemukan kami."
+    },
+    {
+      "year": "2024",
+      "title": "Jadian",
+      "description": "Di taman kota yang sama, kami resmi menjadi sepasang kekasih."
+    },
+    {
+      "year": "2025",
+      "title": "Melamar",
+      "description": "Dengan gugup dan penuh cinta, di momen sunset yang sempurna."
+    },
+    {
+      "year": "2026",
+      "title": "Menikah",
+      "description": "Undangan ini adalah awal dari cerita baru kami."
+    }
+  ]
+}

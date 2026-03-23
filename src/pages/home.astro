@@ -1,0 +1,173 @@
+---
+import GuestName from '../components/GuestName.astro';
+import Countdown from '../components/Countdown.astro';
+import QuranVerse from '../components/QuranVerse.astro';
+import Parents from '../components/Parents.astro';
+import Events from '../components/Events.astro';
+import Gallery from '../components/Gallery.astro';
+import LoveStory from '../components/LoveStory.astro';
+import RSVP from '../components/RSVP.astro';
+import ShareButton from '../components/ShareButton.astro';
+import BottomNav from '../components/BottomNav.astro';
+import data from '../data/wedding.json';
+---
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <title>{data.groom} & {data.bride} - Wedding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="bg-line"></div>
+    <main>
+      <section id="hero">
+        <div class="hero">
+          <p class="label">Wedding Invitation</p>
+          <h1>{data.groom} <span>&</span> {data.bride}</h1>
+        </div>
+      </section>
+      <section id="tamu"><GuestName /></section>
+      <section id="countdown"><Countdown weddingDate={data.date} /></section>
+      <section id="ayat"><QuranVerse /></section>
+      <section id="keluarga">
+        <Parents 
+          groom={data.groom}
+          bride={data.bride}
+          groomFather={data.groomFather}
+          groomMother={data.groomMother}
+          brideFather={data.brideFather}
+          brideMother={data.brideMother}
+        />
+      </section>
+      <section id="acara"><Events events={data.events} /></section>
+      <section id="galeri"><Gallery images={data.gallery} /></section>
+      <section id="cerita"><LoveStory loveStory={data.loveStory} /></section>
+      <section id="rsvp"><RSVP /></section>
+      <section id="bagi"><ShareButton /></section>
+    </main>
+    <footer>
+      <a href="/cover" class="back-btn">← Kembali ke Cover</a>
+    </footer>
+    <BottomNav musicUrl={data.music.url} />
+  </body>
+</html>
+<script>
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('main > section').forEach(el => {
+    el.classList.add('scroll-reveal');
+    observer.observe(el);
+  });
+</script>
+<style is:global>
+  * {
+    -webkit-tap-highlight-color: transparent;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #fff;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .bg-line {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, rgba(201,168,124,0.1), transparent);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem 0.5rem 5rem;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+
+  footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    padding-bottom: 5rem;
+  }
+
+  .back-btn {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease;
+  }
+
+  .back-btn:active {
+    color: #c9a87c;
+  }
+</style>
+<style>
+  .hero {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+
+  .hero .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #999;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 10vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .hero h1 span {
+    color: #c9a87c;
+  }
+</style>
